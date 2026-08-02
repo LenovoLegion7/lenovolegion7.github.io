@@ -1,0 +1,13 @@
+# Contact links displayed at the bottom of the sidebar.
+
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/LenovoLegion7"
+
+- type: tryhackme
+  icon: "fas fa-terminal"
+  url: "https://tryhackme.com/p/LenovoLegion7"
+
+- type: credly
+  icon: "fas fa-award"
+  url: "https://www.credly.com/users/lenovolegion7"

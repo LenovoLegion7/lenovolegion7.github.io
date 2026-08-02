@@ -1,0 +1,236 @@
+# The Site Configuration
+
+# Import the theme
+theme: jekyll-theme-chirpy
+
+# The language of the webpage
+# If it has the same name as one of the files in folder `_data/locales`,
+# the layout language will also be changed.
+lang: en
+
+# Website timezone
+timezone: Europe/Switzerland
+
+# jekyll-seo-tag settings
+# https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.html
+# ↓ -------------------------------------------------------------------
+
+# Main title displayed in the sidebar
+title: LenovoLegion7
+
+# Optional subtitle displayed below the main title
+tagline:
+
+# Used by SEO metadata and the Atom feed
+description: >-
+  Cybersecurity write-ups and compact security reports from authorized
+  TryHackMe training environments.
+
+# Public website address.
+# Do not add a trailing slash.
+url: "https://lenovolegion7.github.io"
+
+# GitHub account
+github:
+  username: LenovoLegion7
+
+# Default post author and footer copyright owner
+social:
+  name: LenovoLegion7
+
+  # The first link is used as the copyright owner's link.
+  links:
+    - https://github.com/LenovoLegion7
+
+# Site verification settings
+# The original owner's verification code has been removed.
+webmaster_verifications:
+  google:
+  bing:
+  alexa:
+  yandex:
+  baidu:
+  facebook:
+
+# ↑ -------------------------------------------------------------------
+# End of jekyll-seo-tag settings
+
+# Analytics settings
+# All analytics services are disabled for now.
+analytics:
+  google:
+    id:
+
+  goatcounter:
+    id:
+
+  umami:
+    id:
+    domain:
+
+  matomo:
+    id:
+    domain:
+
+  cloudflare:
+    id:
+
+  fathom:
+    id:
+
+# Page views settings
+pageviews:
+  provider:
+
+# Preferred color scheme.
+#
+# Available values:
+#   light
+#   dark
+#
+# Leave empty to follow the visitor's operating-system preference.
+theme_mode: dark
+
+# Optional CDN endpoint for media resources
+cdn:
+
+# Avatar displayed in the sidebar
+avatar: assets/img/anonymous.png
+
+# Default social preview image used for SEO and shared links
+social_preview_image:
+
+# Global switch for the table of contents in posts
+toc: true
+
+# Comment-system configuration
+comments:
+  # Leave empty to disable comments globally.
+  provider:
+
+  disqus:
+    shortname:
+
+  utterances:
+    repo:
+    issue_term:
+
+  giscus:
+    repo:
+    repo_id:
+    category:
+    category_id:
+    mapping:
+    strict:
+    input_position:
+    lang:
+    reactions_enabled:
+
+# Self-hosted static assets
+assets:
+  self_host:
+    enabled:
+    env:
+
+# Progressive Web App settings
+pwa:
+  enabled: true
+
+  cache:
+    enabled: true
+
+    # Paths listed here will not be stored in the offline cache.
+    deny_paths:
+      # - "/example"
+
+# Number of posts displayed per page
+paginate: 10
+
+# Base URL of the site
+baseurl: ""
+
+# ---------------------------------------------------------------------
+# The following options are generally not recommended to be modified.
+# ---------------------------------------------------------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+
+  syntax_highlighter: rouge
+
+  syntax_highlighter_opts:
+    css_class: highlight
+
+    span:
+      line_numbers: false
+
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+
+      # Do not modify unless all internal post links are updated.
+      permalink: /posts/:title/
+
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+
+  ignore:
+    envs:
+      - development
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+
+  layouts:
+    category: category
+    tag: tag
+
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
