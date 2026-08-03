@@ -17,7 +17,7 @@ author: lenovolegion7
 media_subpath: /images/tryhackme_operation_takeover
 image:
   path: room_image.webp
-  alt: "TryHackMe Operation Takeover network-router artwork"
+  alt: "Original TryHackMe Operation Takeover room artwork"
 toc: true
 comments: false
 ---
