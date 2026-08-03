@@ -27,7 +27,7 @@ comments: false
 > Passwords, hashes, target addresses, and TryHackMe flags are redacted.
 {: .prompt-warning }
 
-[![TryHackMe Operation Takeover room card](room_card.webp){: w="294" h="269" .shadow }](https://tryhackme.com/room/operationtakeover)
+[![TryHackMe Operation Takeover room card](room_card.webp){: w="303" h="272" .shadow }](https://tryhackme.com/room/operationtakeover)
 
 ## Initial Enumeration
 
