@@ -21,7 +21,7 @@ author: lenovolegion7
 media_subpath: /images/tryhackme_fusion_corp
 image:
   path: room_image.webp
-  alt: "TryHackMe Fusion Corp challenge artwork"
+  alt: "Original TryHackMe Fusion Corp room artwork"
 toc: true
 comments: false
 ---
@@ -31,7 +31,7 @@ comments: false
 > Passwords, hashes, target addresses, and TryHackMe flags are redacted.
 {: .prompt-warning }
 
-[![TryHackMe Fusion Corp room card](room_card.webp){: w="305" h="180" .shadow }](https://tryhackme.com/room/fusioncorp){: .center }
+[![TryHackMe Fusion Corp room card](room_card.webp){: w="303" h="272" .shadow }](https://tryhackme.com/room/fusioncorp){: .center }
 
 ## Initial Enumeration
 
