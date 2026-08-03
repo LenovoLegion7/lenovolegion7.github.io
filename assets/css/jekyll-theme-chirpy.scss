@@ -15,6 +15,13 @@
 /* append your custom style below */
 
 /* LenovoLegion7 sidebar branding alignment */
+
+/* Move the avatar approximately 10 pixels to the right */
+#sidebar #avatar {
+  transform: translateX(0.625rem);
+}
+
+/* Keep the long site title on one line and move it right */
 #sidebar .site-title {
   display: block !important;
   width: auto !important;
@@ -30,9 +37,10 @@
   text-align: left !important;
   white-space: nowrap;
 
-  transform: translateX(-2rem);
+  transform: translateX(-1.375rem);
 }
 
+/* Apply the same alignment to an optional subtitle */
 #sidebar .site-subtitle {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -42,5 +50,5 @@
 
   text-align: left !important;
 
-  transform: translateX(-2rem);
+  transform: translateX(-1.375rem);
 }
