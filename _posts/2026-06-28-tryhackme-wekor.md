@@ -78,7 +78,7 @@ A review of `robots.txt` on `wekor.thm` disclosed additional paths, including:
 
 The vulnerable endpoint accepted user-controlled `coupon_code` input:
 
-```http
+```text
 POST /it-next/it_cart.php
 coupon_code=test'&apply_coupon=Apply+Coupon
 ```
