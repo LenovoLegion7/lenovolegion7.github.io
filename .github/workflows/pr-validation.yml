@@ -1,0 +1,43 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Jekyll build and HTML-Proofer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Clean generated files
+        run: rm -rf _site .jekyll-cache
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Validate generated site
+        run: |
+          bundle exec htmlproofer \
+            _site \
+            --disable-external \
+            --ignore-urls "/^http:\/\/127\.0\.0\.1/,/^http:\/\/0\.0\.0\.0/,/^http:\/\/localhost/"
