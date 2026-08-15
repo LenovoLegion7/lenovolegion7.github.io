@@ -1,6 +1,6 @@
 ---
 title: "TryHackMe: Blueprint"
-date: 2025-12-27 23:45:00 +0100
+date: 2025-12-28 23:45:00 +0100
 categories: [TryHackMe]
 tags:
   - windows
