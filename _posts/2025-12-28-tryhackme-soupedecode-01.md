@@ -1,6 +1,6 @@
 ---
 title: "TryHackMe: Soupedecode 01"
-date: 2025-08-01 21:46:54 +0200
+date: 2025-12-28 21:46:54 +0100
 categories: [TryHackMe]
 tags:
   - windows
